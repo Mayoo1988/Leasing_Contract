@@ -26,6 +26,7 @@ This project showcases the use of Angular 16, Angular Material, reactive forms, 
 ## Technologies and Features Used
 
 - Angular 16: Utilized the latest features and improvements in Angular framework.Have implemented standalone components and removed modules
+- Es lint added
 - Angular Material: Designed user interfaces with Angular Material components for a modern look and feel.
 - Reactive Forms: Implemented dynamic and interactive forms using Angular's reactive forms approach.
 - Validations: Applied form validation techniques to ensure data accuracy and integrity.
