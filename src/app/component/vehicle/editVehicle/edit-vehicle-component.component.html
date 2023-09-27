@@ -1,0 +1,54 @@
+<form [formGroup]="myform" (ngSubmit)="Saveuser()">
+    <h1 mat-dialog-title>Leasing Contract</h1>
+    <div mat-dialog-content *ngIf="vehicleedit$ | async as vehicleedit; else noData">
+       
+       <mat-form-field>
+        <mat-label>Brand</mat-label>
+        <input matInput formControlName="brand" [value]="vehicleedit.brand">
+       </mat-form-field>
+       <mat-form-field>
+        <mat-label>Model</mat-label>
+        <input matInput formControlName="model" [value]="vehicleedit.model">
+       </mat-form-field>
+       <mat-form-field>
+        <mat-label>Model Year</mat-label>
+        <input matInput type="number" placeholder="Enter year" formControlName="modelYear"  min="1900" max="2100" required [value]="vehicleedit.modelYear">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Vin</mat-label>
+        <input matInput formControlName="vin" [value]="vehicleedit.vin">
+       </mat-form-field>
+        <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="price" [value]="vehicleedit.price">
+        </mat-form-field>
+    </div>
+    <ng-template  #noData>
+      <div mat-dialog-content>
+        <mat-form-field>
+          <mat-label>Brand</mat-label>
+          <input matInput formControlName="brand" >
+         </mat-form-field>
+         <mat-form-field>
+          <mat-label>Model</mat-label>
+          <input matInput formControlName="model" >
+         </mat-form-field>
+         <mat-form-field>
+          <mat-label>Model Year</mat-label>
+          <input matInput type="number" placeholder="Enter year" formControlName="modelYear"  min="1900" max="2100" required >
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Vin</mat-label>
+          <input matInput formControlName="vin" >
+         </mat-form-field>
+          <mat-form-field>
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" >
+          </mat-form-field>
+      </div>
+    </ng-template>
+    <div mat-dialog-actions>
+      <button mat-raised-button type="submit" color="primary">Save</button>
+      <a (click)="closepopup()" mat-raised-button color="warn">Close</a>
+    </div>
+    </form>

@@ -1,0 +1,55 @@
+<form [formGroup]="myform" (ngSubmit)="Saveuser()">
+    <h1 mat-dialog-title>Leasing Contract</h1>
+    <div mat-dialog-content *ngIf="contractedit$ | async as contractedit;">
+       <mat-form-field>
+        <mat-label>Contract No</mat-label>
+        <input formControlName="contractNo" matInput>
+       </mat-form-field>
+       <mat-form-field>
+        <mat-label>Monthly Rate</mat-label>
+        <input matInput formControlName="monthlyRate">
+       </mat-form-field>
+       <mat-label>Customer</mat-label>
+       <div class="form-row-container">
+       <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstname">
+       </mat-form-field>
+       <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName">
+       </mat-form-field>
+      </div>
+       <mat-label>Vehicle</mat-label>
+       <div class="form-row-container">
+       <mat-form-field >
+        <mat-label>Brand</mat-label>
+        <input matInput formControlName="brand" >
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Model</mat-label>
+        <input matInput formControlName="model" >
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Year</mat-label>
+        <input matInput formControlName="year" formControlName="year">
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>vin</mat-label>
+        <input matInput formControlName="vin" >
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>price</mat-label>
+        <input matInput formControlName="price"> 
+      </mat-form-field>
+    </div>
+       <!-- <div>
+        <mat-checkbox formControlName="status">Is Active</mat-checkbox>
+       </div> -->
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button type="submit" color="primary">Save</button>
+      <a (click)="closepopup()" mat-raised-button color="warn">Close</a>
+      <!-- <button mat-raised-button [mat-dialog-close]="closemessage" color="accent">Cancel</button> -->
+    </div>
+    </form>

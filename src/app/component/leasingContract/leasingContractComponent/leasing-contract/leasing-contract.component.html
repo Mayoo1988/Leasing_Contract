@@ -1,0 +1,72 @@
+<mat-card>
+    <mat-card-header>
+  <mat-form-field>
+    <input matInput (keyup)="filterChange($event)" placeholder="Enter the text" />
+  </mat-form-field>
+  <button style="margin-left: 60%;" (click)="addcontract('submit')" mat-raised-button color="primary">Add Contract (+)</button>
+
+    </mat-card-header>
+    <mat-card-content>
+
+    
+
+<table matSort mat-table [dataSource]="contract.overviewItems" class="contract-card mat-elevation-z8"  *ngIf="contract$ | async as contract;">
+
+    <ng-container matColumnDef="ContractNo">
+      <th mat-sort-header mat-header-cell *matHeaderCellDef> Contract No</th>
+      <td mat-cell *matCellDef="let element">{{element.contractId}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="customerName">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef> Customer</th>
+        <td mat-cell *matCellDef="let element">{{element.customerName}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="vehicleName">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef> Vehicle</th>
+        <td mat-cell *matCellDef="let element">{{element.vehicleName}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="vin">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef> VIN</th>
+        <td mat-cell *matCellDef="let element">{{element.vin}}</td>
+      </ng-container>
+      
+
+      <ng-container matColumnDef="monthlyRate">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef> MonthlyRate</th>
+        <td mat-cell *matCellDef="let element">{{element.monthlyRate}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="vehiclePrice">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef> VehiclePrice</th>
+        <td mat-cell *matCellDef="let element">{{element.vehiclePrice}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Details</th>
+        <td mat-cell *matCellDef="let element">
+
+            <button (click)="editContract(element.contractId)" mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+            <button (click)="deleteContract(element.contractId)" mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+            <button (click)="detailContract(element.contractId)" mat-icon-button color="primary"><mat-icon>output</mat-icon></button>
+        </td>
+      </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row;columns:displayedColumns"></tr>
+
+</table>
+
+</mat-card-content>
+<br>
+<mat-card-footer>
+
+    <mat-paginator  [pageSizeOptions]="[5, 10, 20]"
+    [length]="(contract$ | async)?.numberOfItems"
+    (page)="onPaginatorChange($event)" showFirstLastButtons>
+  </mat-paginator>
+
+</mat-card-footer>
+</mat-card>

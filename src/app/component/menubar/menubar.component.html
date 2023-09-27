@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+    <button (click)="drawer.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Leasing Contract</span>
+    <span class="example-spacer"></span>
+</mat-toolbar>
+<mat-drawer-container autosize>
+    <mat-drawer #drawer opened="true" mode="side" position="start">
+    <mat-nav-list>
+        <mat-list-item>
+            <button routerLink="customer" mat-button><mat-icon>person</mat-icon> Customer</button>
+        </mat-list-item>
+        <mat-list-item>
+            <button routerLink="vehicle" mat-button><mat-icon>directions_car</mat-icon> Vehicle</button>
+        </mat-list-item>
+        <mat-list-item>
+            <button routerLink="leasing" mat-button><mat-icon>description</mat-icon> Contract</button>
+        </mat-list-item>
+    </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div style="text-align: center;min-height: 600px;">
+
+            <router-outlet></router-outlet>
+            </div>
+    </mat-drawer-content>
+</mat-drawer-container>

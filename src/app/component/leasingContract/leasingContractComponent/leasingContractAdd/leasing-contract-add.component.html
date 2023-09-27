@@ -1,0 +1,49 @@
+<form [formGroup]="myform" (ngSubmit)="Saveuser()">
+    <h1 mat-dialog-title>Leasing Contract</h1>
+    <div mat-dialog-content >
+       <mat-form-field>
+        <mat-label>Contract No</mat-label>
+        <input formControlName="contractNo" matInput>
+       </mat-form-field>
+       <mat-form-field>
+        <mat-label>Monthly Rate</mat-label>
+        <input matInput formControlName="monthlyRate">
+       </mat-form-field>
+       <mat-label>Customer</mat-label>
+       <div class="form-row-container">
+        <mat-form-field>
+            <mat-label>Select Customer</mat-label>
+            <mat-select formControlName="customername">
+              <mat-option *ngFor="let customer of namelist" [value]="customer">{{ customer }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+      </div>
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Birthdate</mat-label>
+        <input matInput [matDatepicker]="birthdatePicker" formControlName="birthDate">
+        <mat-datepicker-toggle matSuffix [for]="birthdatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #birthdatePicker></mat-datepicker>
+      </mat-form-field> -->
+       <mat-label>Vehicle</mat-label>
+       <div class="form-row-container">
+      <mat-form-field>
+            <mat-label>Select brand/model/Year</mat-label>
+            <mat-select formControlName="vehiclename">
+              <mat-option *ngFor="let vehicle of vehiclelist" [value]="vehicle">{{ vehicle }}</mat-option>
+            </mat-select>
+      </mat-form-field>
+    </div>
+      <mat-form-field >
+        <mat-label>vin</mat-label>
+        <input matInput formControlName="vin" >
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>price</mat-label>
+        <input matInput formControlName="price"> 
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button type="submit" color="primary">Save</button>
+      <a (click)="closepopup()" mat-raised-button color="warn">Close</a>
+    </div>
+    </form>

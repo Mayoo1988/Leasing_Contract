@@ -1,0 +1,56 @@
+<mat-card>
+    <mat-card-header>
+  <mat-form-field>
+    <input matInput (keyup)="filterChange($event)" placeholder="Enter the text" />
+  </mat-form-field>
+  <button style="margin-left: 60%;" (click)="addCustomer('submit')" mat-raised-button color="primary">Add Customer(+)</button>
+
+    </mat-card-header>
+    <mat-card-content>
+
+    
+      
+<table matSort mat-table [dataSource]="customers.overviewItems" class="customer-card mat-elevation-z8" *ngIf="customers$ | async as customers">
+
+    <ng-container matColumnDef="firstName">
+      <th mat-sort-header mat-header-cell *matHeaderCellDef> First Name</th>
+      <td mat-cell *matCellDef="let element">{{element.firstName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef> Last Name</th>
+        <td mat-cell *matCellDef="let element">{{element.lastName}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="birthDate">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef> Birth Date</th>
+        <td mat-cell *matCellDef="let element">{{ formatBirthDate(element.birthDate)}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action</th>
+        <td mat-cell *matCellDef="let element">
+
+            <button (click)="editCustomer(element.id)" mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+            <button (click)="deleteCustomer(element.id)" mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+        </td>
+      </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row;columns:displayedColumns"></tr>
+
+</table>
+      
+
+</mat-card-content>
+<br>
+<mat-card-footer>
+
+    <mat-paginator  [pageSizeOptions]="[5, 10, 20]"
+    [length]="(customers$ | async)?.numberOfItems"
+    (page)="onPaginatorChange($event)" showFirstLastButtons>
+  </mat-paginator>
+</mat-card-footer>
+
+</mat-card>

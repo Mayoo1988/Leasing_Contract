@@ -1,0 +1,28 @@
+
+mat-card{
+    margin: 2%;
+    text-align: left;
+}
+
+.mat-mdc-form-field {
+    width: 98%;
+    margin: 1%;
+}
+
+.mat-50{
+    width: 50%;
+    margin: 1%;
+}
+
+button{
+    margin: 2px;
+}
+
+.form-row-container {
+    display: flex;
+  }
+  
+  /* Adjust margins or other styles for mat-form-field elements if needed */
+  .mat-form-field {
+    margin-right: 10px; /* Optional: Add spacing between form fields */
+  }

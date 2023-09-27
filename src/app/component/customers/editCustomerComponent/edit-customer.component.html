@@ -1,0 +1,41 @@
+<form [formGroup]="myform" (ngSubmit)="Saveuser()">
+    <h1 mat-dialog-title>Customer Details</h1>
+    <div mat-dialog-content *ngIf="customersedit$ | async as customersedit; else noData">
+       <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" [value]="customersedit.firstName">
+       </mat-form-field>
+       <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" [value]="customersedit.lastName">
+       </mat-form-field>
+       <mat-form-field appearance="fill">
+        <mat-label>Birthdate</mat-label>
+        <input matInput [matDatepicker]="birthdatePicker" formControlName="birthDate" [value]="customersedit.birthDate ? customersedit.birthDate : null">
+        <mat-datepicker-toggle matSuffix [for]="birthdatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #birthdatePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <ng-template  #noData>
+      <div mat-dialog-content>
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" >
+       </mat-form-field>
+       <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" >
+       </mat-form-field>
+       <mat-form-field appearance="fill">
+        <mat-label>Birthdate</mat-label>
+        <input matInput [matDatepicker]="birthdatePicker" formControlName="birthDate">
+        <mat-datepicker-toggle matSuffix [for]="birthdatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #birthdatePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    </ng-template>
+    <div mat-dialog-actions>
+      <button mat-raised-button type="submit" color="primary">Save</button>
+      <a (click)="closepopup()" mat-raised-button color="warn">Close</a>
+    </div>
+    </form>

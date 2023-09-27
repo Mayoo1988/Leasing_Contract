@@ -1,0 +1,13 @@
+
+<h1 mat-dialog-title>Leasing Contract</h1>
+<div mat-dialog-content *ngIf="contractdetail$ | async as contractdetail;">
+  <h2>Customer : <b>{{contractdetail.customer.firstName +' ' +contractdetail.customer.lastName}}</b></h2>
+  <h2>Vehicle : <b>{{contractdetail.vehicle.brand+' '+contractdetail.vehicle.model+' '+contractdetail.vehicle.modelYear}}</b></h2>
+  <h2>Vin : <b>{{contractdetail.vehicle.vin}}</b></h2>
+  <h2>Monthly Rate : <b>{{contractdetail.monthlyRate}}</b></h2>
+  <h2>Vehicle Price : <b>{{contractdetail.vehicle.price}}</b></h2>
+</div>
+<div mat-dialog-actions>
+  <button (click)="closepopup()" mat-raised-button color="warn">Close</button>
+  <!-- <button mat-raised-button [mat-dialog-close]="closemessage" color="accent">Cancel</button> -->
+</div>
