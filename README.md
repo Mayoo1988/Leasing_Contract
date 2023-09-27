@@ -25,14 +25,14 @@ This project showcases the use of Angular 16, Angular Material, reactive forms, 
 
 ## Technologies and Features Used
 
-- Angular 16: Utilized the latest features and improvements in Angular framework.
+- Angular 16: Utilized the latest features and improvements in Angular framework.Have implemented standalone components and removed modules
 - Angular Material: Designed user interfaces with Angular Material components for a modern look and feel.
 - Reactive Forms: Implemented dynamic and interactive forms using Angular's reactive forms approach.
 - Validations: Applied form validation techniques to ensure data accuracy and integrity.
 - RxJS: Leveraged the latest RxJS features for handling asynchronous operations and data streams.
-- Services: Organized application logic into modular services for better maintainability.
-- Lazy Loading: Utilized lazy loading to optimize the loading time of different sections of the application.
+- Services: Organized application logic into modular services for better maintainability. Have made use of interface, models and classes.
+- Lazy Loading: Utilized lazy loading for standalone components to optimize the loading time of different sections of the application.
 - Pagination: Implemented pagination for efficient data presentation and navigation.
 - Filtering: Enabled data filtering to allow users to search and retrieve specific information.
-- Angular Test Cases: Created comprehensive test suites using Angular testing frameworks to ensure code reliability and functionality.
+- Angular Test Cases: Created comprehensive test suites using Angular testing frameworks to ensure code reliability and functionality. Have created mock test classes.
 

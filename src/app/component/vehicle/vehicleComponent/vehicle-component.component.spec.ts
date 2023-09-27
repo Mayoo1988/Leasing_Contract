@@ -38,7 +38,6 @@ describe('vehicleComponent', () => {
   it('should display vehicle list', () => {
     component.vehicle$ = setupVehicle()
     fixture.detectChanges()
-    console.log(component.vehicle$)
     console.log(el.nativeElement.outerHTML)
     const vehicle = el.queryAll(By.css('.vehicle-card'))
     expect(vehicle).toBeTruthy('Could not find vehicle')

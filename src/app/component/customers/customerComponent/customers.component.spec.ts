@@ -38,8 +38,6 @@ describe('customersComponent', () => {
   it('should display customer list', () => {
     component.customers$ = setupCustomer()
     fixture.detectChanges()
-    console.log(component.customers$)
-    console.log(el.nativeElement.outerHTML)
     const customer = el.queryAll(By.css('.customer-card'))
     expect(customer).toBeTruthy('Could not find customer')
     expect(customer.length).toBe(1)
